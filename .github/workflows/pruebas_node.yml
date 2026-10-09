@@ -1,0 +1,27 @@
+name: Pruebas Perras
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  testear-codigo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Desacargar Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Instalar Dependencias
+        run: npm install
+
+      - name: Ejecutar pruebas
+        run: npm test 
+
+
